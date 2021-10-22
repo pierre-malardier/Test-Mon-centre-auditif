@@ -1,16 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}SAV-Mon centre auditif{% endblock %}
+{% form_theme formView 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}SAV-Mon centre auditif
+{% endblock %}
 
 {% block body %}
-{% block header %}
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-            <img src="" alt="logo mon centre auditif" width="30" height="24" class="d-inline-block align-text-top">
-            Bootstrap
-            </a>
-        </div>
-    </nav>
-{% endblock %}
+	{% block header %}
+		<nav class="navbar navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="https://mon-centre-auditif.com/">
+					<img src="/images/logo.png" alt="logo mon centre auditif">
+				</a>
+			</div>
+		</nav>
+	{% endblock %}
+	{% block main %}
+		<img src="/images/main.png" alt="photo arrière plan" class="w-100">
+		<h1 class="text-center">
+			Bienvenue au SAV
+		</h1>
+		<p class="text-center">
+			Veuillez remplir le formulaire suivant pour pouvoir déposer le produit à réparer.
+		</p>
+
+		{{ form_start(formView)}}
+		<div class="row">
+			<div class="col">
+				{{ form_row(formView.name)}}
+				{{ form_row(formView.prenom)}}
+				{{ form_row(formView.email)}}
+				{{ form_row(formView.telephone)}}
+			</div>
+			<div class="col">
+				{{ form_row(formView.nomDuProduit)}}
+				{{ form_row(formView.categorie)}}
+				{{ form_row(formView.lieuDeDepot)}}
+				{{ form_row(formView.date)}}
+				{{ form_row(formView.trancheHoraire)}}
+			</div>
+		</div>
+
+		<button type="submit" class="butn btn-primary">
+			Valider la demande
+		</button>
+		{{ form_end(formView) }}
+	{% endblock %}
+	{% block footer %}{% endblock %}
 {% endblock %}
