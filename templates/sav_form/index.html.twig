@@ -15,6 +15,12 @@
 	</p>
 
 	{{ form_start(formView)}}
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-danger text-center">
+			{{ message }}
+		{% endfor %}
+	</div>
+
 	<div class="row">
 		<div class="col">
 			{{ form_row(formView.name)}}

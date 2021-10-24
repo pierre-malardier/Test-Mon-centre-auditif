@@ -6,6 +6,8 @@ use App\Entity\ProductSav;
 use App\Form\ProductType;
 use App\Repository\ProductSavRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Error;
+use PhpParser\Node\Name;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,12 +31,17 @@ class SavFormController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $product_sav = $form->getData();
-            $em->persist($product_sav);
-            $em->flush();
+            if (strcmp($form->getData()->getName(), $form->getData()->getPrenom()) != 0) {
+                $em->persist($product_sav);
+                $em->flush();
 
-            return $this->redirectToRoute('product_validate', [
-                'id' => $product_sav->getId()
-            ]);
+
+                return $this->redirectToRoute('product_validate', [
+                    'id' => $product_sav->getId()
+                ]);
+            } else {
+                $this->addFlash('notice', 'Le nom et le prénom ne peuvent avoir le même nombre de caractères!!');
+            }
         }
 
 

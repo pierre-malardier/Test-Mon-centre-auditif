@@ -34,7 +34,7 @@ class ProductType extends AbstractType
             ])
             ->add('telephone', TelType::class, [
                 'label' => 'Télephone',
-                'attr' => ['placeholder' => '+33(0)788856629']
+                'attr' => ['placeholder' => '0788856629']
             ])
             ->add('nomDuProduit', TextType::class, [
                 'label' => 'Nom du produit',

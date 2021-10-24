@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProductSavRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,16 +30,23 @@ class ProductSav
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *      message = "Le mail'{{ value }}' n'est pas valide.")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     * pattern="/[0-9]{10}/",
+     * message = "Votre numéro doit contenir 10 chiffres."
+     * )
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $nomDuProduit;
 
