@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Validation de réservation SAV
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">
+		{{product_sav.prenom}}
+		{{ product_sav.name }}.</h1>
+	<p class="text-center">
+		Merci d'avoir enregistré votre produit.</p>
+	<p class="text-center">Nous vous attendons à
+		{{product_sav.lieuDeDepot}}
+		le
+		{{product_sav.date.format('d/m/Y')}}
+		pour déposer ce dernier.</p>
+{% endblock %}
