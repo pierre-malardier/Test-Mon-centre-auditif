@@ -62,6 +62,8 @@ class ProductSav
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\GreaterThan("today")
+     *      
      */
     private $date;
 

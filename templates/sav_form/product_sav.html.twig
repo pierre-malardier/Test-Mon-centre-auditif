@@ -10,9 +10,11 @@
 		{{ product_sav.name }}.</h1>
 	<p class="text-center">
 		Merci d'avoir enregistré votre produit.</p>
-	<p class="text-center">Nous vous attendons à
+	<p class="text-center">Nous vous attendons au
 		{{product_sav.lieuDeDepot}}
 		le
 		{{product_sav.date.format('d/m/Y')}}
+		dans
+		{{product_sav.trancheHoraire}}
 		pour déposer ce dernier.</p>
 {% endblock %}

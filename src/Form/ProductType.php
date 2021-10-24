@@ -59,9 +59,9 @@ class ProductType extends AbstractType
                 'label' => 'Tranche horaire',
                 'placeholder' => '--Choisissez le créneau voulu--',
                 'choices' => [
-                    'matin' => 'matin',
-                    'après-midi' => 'après-midi',
-                    'soirée' => 'soirée'
+                    'matin' => 'la matinée',
+                    'après-midi' => 'l\'après-midi',
+                    'soirée' => 'la soirée'
                 ]
 
             ]);
